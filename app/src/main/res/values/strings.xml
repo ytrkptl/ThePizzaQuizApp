@@ -38,6 +38,7 @@
     <string name="selectAnAnswer">Please select an answer first</string>
     <string name="correctAnswersTextView">0</string>
     <string name="totalAnswersTextView1">You answered </string>
-    <string name="totalAnswersTextView2"> correct answers out of 6.</string>
+    <string name="totalAnswersTextView2"> correct answers out of 6 total.</string>
     <string name="totalAnswersTextView3">Your score is </string>
+    <string name="share_score">Share score</string>
 </resources>

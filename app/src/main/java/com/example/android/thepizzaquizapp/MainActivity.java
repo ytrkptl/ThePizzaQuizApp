@@ -195,8 +195,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     /**
-     * Create summary of the order.
-     * Send the summary to the email app
+     * Create summary of the quiz including the score.
+     * Display summary in a toast message
      */
     public void submitQuiz(View view) {
         int percentScore = (numberOfCorrectAnswers*100/numberOfQuestions);
@@ -205,10 +205,20 @@ public class MainActivity extends AppCompatActivity {
         correctNumberOfAnswers += "\n" + getString(R.string.totalAnswersTextView3) + " ";
         correctNumberOfAnswers += percentScore + " %";
         Toast.makeText(this, correctNumberOfAnswers, Toast.LENGTH_LONG).show();
-
+    }
+    /**
+     * Create summary of the quiz.
+     * Send the summary to the app in order to share.
+     */
+    public void shareScore(View view) {
+        int percentScore = (numberOfCorrectAnswers*100/numberOfQuestions);
+        String correctNumberOfAnswers = getString(R.string.totalAnswersTextView1) + " ";
+        correctNumberOfAnswers += numberOfCorrectAnswers +" " + getString(R.string.totalAnswersTextView2);
+        correctNumberOfAnswers += "\n" + getString(R.string.totalAnswersTextView3) + " ";
+        correctNumberOfAnswers += percentScore + " %";
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My score on The Quiz App");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "My score on The Pizza Quiz App");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, correctNumberOfAnswers);
         startActivity(Intent.createChooser(sharingIntent, "Share on: "));
     }
